@@ -52,16 +52,10 @@ function App() {
       range: {
         OR: [{ z: 5, f: [3, 5], x: [3, "-"], y: [3], i: 0, t: ["-"] }],
       },
-      options: { vertex: true, id_pure: true },
+      options: { vertex: true, id_pure: true, center: true, id_string: true },
     });
 
-    // nekoの型がわからないですが、値を取り出してセット
-    if (Array.isArray(neko) && neko.length > 0) {
-      // 例: nekoの最初のvalueをstateにセット
-      setTemperatureValue(Number(neko[0].value));
-    } else {
-      setTemperatureValue(null);
-    }
+    console.log(neko);
   }, [kasane]);
 
   return (
@@ -75,6 +69,8 @@ function App() {
         </a>
       </div>
       <h1>kasane-react-example</h1>
+      <h1>console.logを見よう</h1>
+
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
